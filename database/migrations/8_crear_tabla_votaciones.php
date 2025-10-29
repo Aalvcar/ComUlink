@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('votaciones', function (Blueprint $table) {
             $table->string('email', 100);
             $table->unsignedTinyInteger('id_propuesta');
-            $table->timestamp('fecha_voto')->useCurrent();
             $table->boolean('tipo_voto');
+            $table->timestamps();
 
             // Clave primaria compuesta
             $table->primary(['email', 'id_propuesta']);
 
-            // Claves foráneas
+            // Claves ajenas
             $table->foreign('email')
                 ->references('email')
                 ->on('usuarios')

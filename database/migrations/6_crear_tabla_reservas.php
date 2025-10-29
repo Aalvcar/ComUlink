@@ -12,14 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservas', function (Blueprint $table) {
-            $table->smallIncrements('ID'); // SMALLINT AUTO_INCREMENT PRIMARY KEY
+            $table->smallIncrements('ID');
             $table->date('fecha');
             $table->time('hora_inicio');
             $table->time('hora_fin');
-            $table->unsignedTinyInteger('id_instalacion')->nullable();
-            $table->string('email', 100)->nullable();
+            $table->unsignedTinyInteger('id_instalacion');
+            $table->string('email', 100);
+            $table->timestamps();
 
-            // Claves foráneas
+
+            // Claves ajenas
             $table->foreign('email')
                 ->references('email')
                 ->on('usuarios')

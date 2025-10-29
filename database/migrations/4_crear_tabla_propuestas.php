@@ -14,16 +14,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('propuestas', function (Blueprint $table) {
-            $table->tinyIncrements('ID'); // TINYINT AUTO_INCREMENT PRIMARY KEY
-            $table->string('titulo', 50);
+            $table->tinyIncrements('ID');
+            $table->string('titulo', 100);
             $table->text('descripcion');
             $table->enum('categoria', ['administrativa', 'ocio', 'deportiva', 'infraestructura']);
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
             $table->smallInteger('total_votos')->default(0);
-            $table->string('email', 100)->nullable();
+            $table->string('email', 100);
+            $table->timestamps();
+            $table->date('fecha_fin');
 
-            // Clave foránea hacia usuarios
+
+            // Clave  ajena hacia usuarios
             $table->foreign('email')
                 ->references('email')
                 ->on('usuarios')

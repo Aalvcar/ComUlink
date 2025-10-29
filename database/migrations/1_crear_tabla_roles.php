@@ -15,12 +15,8 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->tinyInteger('codigo')->primary();
-            $table->enum('nombre', ['presidente', 'propietario', 'inquilino'])->notNullable();
+            $table->enum('nombre', ['presidente', 'propietario', 'inquilino']);
             $table->string('descripcion', 255);
-
-            // Laravel no soporta directamente CHECK constraints
-            // pero se puede agregar manualmente si MySQL lo soporta:
-            // DB::statement("ALTER TABLE roles ADD CHECK (codigo IN (1,2,3))");
         });
     }
 

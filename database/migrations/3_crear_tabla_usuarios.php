@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('direccion', 100);
             $table->unsignedInteger('telefono');
             $table->date('fecha_nacimiento');
-            $table->date('fecha_alta');
-            $table->tinyInteger('cod_rol')->nullable();
+            $table->tinyInteger('cod_rol');
+            $table->timestamps();
 
-            // Clave foránea hacia roles
+
+            // Clave ajena hacia roles
             $table->foreign('cod_rol')
                 ->references('codigo')
                 ->on('roles')

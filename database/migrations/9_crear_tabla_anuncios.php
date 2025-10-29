@@ -13,13 +13,15 @@ return new class extends Migration
     {
 
         Schema::create('anuncios', function (Blueprint $table) {
-            $table->smallIncrements('ID'); // SMALLINT AUTO_INCREMENT PRIMARY KEY
-            $table->string('titulo', 50);
+            $table->smallIncrements('ID');
+            $table->string('titulo', 100);
             $table->text('descripcion');
-            $table->timestamp('fecha')->useCurrent(); // TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            $table->string('email', 100)->nullable();
+            $table->timestamp('fecha')->nullable();
+            $table->string('email', 100);
+            $table->timestamps();
 
-            // Clave foránea
+
+            // Clave ajena
             $table->foreign('email')
                 ->references('email')
                 ->on('usuarios')

@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('incidencias', function (Blueprint $table) {
-            $table->smallIncrements('ID'); // SMALLINT AUTO_INCREMENT PRIMARY KEY
-            $table->string('titulo', 50);
+            $table->smallIncrements('ID'); 
+            $table->string('titulo', 100);
             $table->text('descripcion');
             $table->enum('categoria', ['rotura', 'reparacion', 'limpieza']);
-            $table->string('reparador', 100)->nullable();
+            $table->string('reparador', 100)->default('No asignado');
             $table->string('estado', 255)->default('Pendiente');
             $table->boolean('reportada')->default(false);
             $table->string('causa', 30);
-            $table->timestamp('fecha_alta')->useCurrent();
-            $table->string('email', 100)->nullable();
+            $table->timestamps();
+            $table->string('email', 100);
 
-            // Clave foránea hacia usuarios
+            // Clave ajena hacia usuarios
             $table->foreign('email')
                 ->references('email')
                 ->on('usuarios')

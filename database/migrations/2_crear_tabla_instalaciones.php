@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('instalaciones', function (Blueprint $table) {
-            $table->tinyIncrements('ID'); // TINYINT AUTO_INCREMENT PRIMARY KEY
-            $table->string('nombre', 100);
+            $table->tinyIncrements('ID');
+            $table->string('nombre', 50);
             $table->string('descripcion', 255);
             $table->unsignedTinyInteger('aforo');
         });
