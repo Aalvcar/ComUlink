@@ -11,25 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('votaciones', function (Blueprint $table) {
-            $table->string('email', 100);
-            $table->unsignedTinyInteger('id_propuesta');
-            $table->boolean('tipo_voto');
+        Schema::create('votes', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('proposal_id');
+            $table->boolean('vote_type');
             $table->timestamps();
 
             // Clave primaria compuesta
-            $table->primary(['email', 'id_propuesta']);
+            $table->primary(['user_id', 'proposal_id']);
 
             // Claves ajenas
-            $table->foreign('email')
-                ->references('email')
-                ->on('usuarios')
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('id_propuesta')
-                ->references('ID')
-                ->on('propuestas')
+            $table->foreign('proposal_id')
+                ->references('id')
+                ->on('proposals')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('votaciones');
+        Schema::dropIfExists('votes');
     }
 };

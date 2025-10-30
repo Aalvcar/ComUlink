@@ -11,22 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('incidencias', function (Blueprint $table) {
-            $table->smallIncrements('ID'); 
-            $table->string('titulo', 100);
-            $table->text('descripcion');
-            $table->enum('categoria', ['rotura', 'reparacion', 'limpieza']);
-            $table->string('reparador', 100)->default('No asignado');
-            $table->string('estado', 255)->default('Pendiente');
-            $table->boolean('reportada')->default(false);
-            $table->string('causa', 30);
+        Schema::create('issues', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 100);
+            $table->text('description');
+            $table->enum('category', ['rotura', 'reparacion', 'limpieza']);
+            $table->string('repairman', 100)->default('No asignado');
+            $table->string('status', 255)->default('Pendiente');
+            $table->boolean('reported')->default(false);
+            $table->string('cause', 30);
             $table->timestamps();
-            $table->string('email', 100);
+            $table->unsignedBigInteger('user_id'); // Relación con users
 
             // Clave ajena hacia usuarios
-            $table->foreign('email')
-                ->references('email')
-                ->on('usuarios')
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('incidencias');
+        Schema::dropIfExists('issues');
     }
 };

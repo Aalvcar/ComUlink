@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('servicios', function (Blueprint $table) {
-            $table->smallIncrements('ID');
-            $table->string('titulo', 100);
-            $table->text('descripcion');
-            $table->enum('categoria', ['salud', 'albañileria', 'alimentacion', 'bricolaje', 'electronica', 'mantenimiento']);
-            $table->string('precio', 150);
-            $table->smallInteger('total_servicios')->default(0);
-            $table->string('email', 100);
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 100);
+            $table->text('description');
+            $table->enum('category', ['salud', 'albañileria', 'alimentacion', 'bricolaje', 'electronica', 'mantenimiento']);
+            $table->string('price', 150);
+            $table->smallInteger('total_services')->default(0);
+            $table->unsignedBigInteger('user_id'); // FK hacia users
             $table->timestamps();
 
 
             // Clave ajena
-            $table->foreign('email')
-                ->references('email')
-                ->on('usuarios')
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('servicios');
+        Schema::dropIfExists('services');
     }
 };

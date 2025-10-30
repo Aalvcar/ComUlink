@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('instalaciones', function (Blueprint $table) {
-            $table->tinyIncrements('ID');
-            $table->string('nombre', 50);
-            $table->string('descripcion', 255);
-            $table->unsignedTinyInteger('aforo');
+        Schema::create('facilities', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100);
+            $table->string('description', 255);
+            $table->unsignedTinyInteger('capacity');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('instalaciones');
+        Schema::dropIfExists('facilities');
     }
 };

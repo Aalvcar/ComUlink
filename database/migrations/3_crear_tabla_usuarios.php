@@ -11,21 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->string('email', 100)->primary();
-            $table->string('nombre', 25);
-            $table->string('apellidos', 50);
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('email', 100)->unique();
+            $table->string('name', 25);
+            $table->string('surname', 50);
             $table->string('password', 255);
-            $table->string('direccion', 100);
-            $table->unsignedInteger('telefono');
-            $table->date('fecha_nacimiento');
-            $table->tinyInteger('cod_rol');
+            $table->string('address', 100);
+            $table->unsignedInteger('phone');
+            $table->date('birth_date');
+            $table->unsignedTinyInteger('role_id');
             $table->timestamps();
 
 
             // Clave ajena hacia roles
-            $table->foreign('cod_rol')
-                ->references('codigo')
+            $table->foreign('role_id')
+                ->references('id')
                 ->on('roles')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
@@ -37,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('users');
     }
 };

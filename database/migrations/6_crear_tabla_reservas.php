@@ -11,26 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reservas', function (Blueprint $table) {
-            $table->smallIncrements('ID');
-            $table->date('fecha');
-            $table->time('hora_inicio');
-            $table->time('hora_fin');
-            $table->unsignedTinyInteger('id_instalacion');
-            $table->string('email', 100);
+        Schema::create('bookings', function (Blueprint $table) {
+            $table->id();
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
+
+            $table->unsignedBigInteger('user_id'); // referencia al usuario
+            $table->unsignedBigInteger('facility_id'); // referencia a instalación
+
             $table->timestamps();
 
 
             // Claves ajenas
-            $table->foreign('email')
-                ->references('email')
-                ->on('usuarios')
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('id_instalacion')
-                ->references('ID')
-                ->on('instalaciones')
+            $table->foreign('facility_id')
+                ->references('id')
+                ->on('facilities')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -41,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservas');
+        Schema::dropIfExists('bookings');
     }
 };

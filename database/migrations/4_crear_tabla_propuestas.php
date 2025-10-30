@@ -13,29 +13,30 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('propuestas', function (Blueprint $table) {
-            $table->tinyIncrements('ID');
-            $table->string('titulo', 100);
-            $table->text('descripcion');
-            $table->enum('categoria', ['administrativa', 'ocio', 'deportiva', 'infraestructura']);
-            $table->smallInteger('total_votos')->default(0);
-            $table->string('email', 100);
+        Schema::create('proposals', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 100);
+            $table->text('description');
+            $table->enum('category', ['administrativa', 'ocio', 'deportiva', 'infraestructura']);
+            $table->unsignedSmallInteger('total_votes')->default(0);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
-            $table->date('fecha_fin');
 
+            $table->unsignedBigInteger('user_id');
 
             // Clave  ajena hacia usuarios
-            $table->foreign('email')
-                ->references('email')
-                ->on('usuarios')
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
 
         // Columna virtual "acaba_en" (calculada)
         DB::statement("
-            ALTER TABLE propuestas
-            ADD COLUMN acaba_en INT AS (DATEDIFF(fecha_fin, CURDATE())) VIRTUAL
+            ALTER TABLE proposals
+            ADD COLUMN days_remaining INT AS (DATEDIFF(end_date, CURDATE())) VIRTUAL
         ");
     }
 
@@ -44,6 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('propuestas');
+        Schema::dropIfExists('proposals');
     }
 };

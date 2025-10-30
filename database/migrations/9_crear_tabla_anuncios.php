@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
 
-        Schema::create('anuncios', function (Blueprint $table) {
-            $table->smallIncrements('ID');
-            $table->string('titulo', 100);
-            $table->text('descripcion');
-            $table->timestamp('fecha')->nullable();
-            $table->string('email', 100);
+        Schema::create('announcements', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 100);
+            $table->text('description');
+            $table->timestamp('event_date')->nullable();
+            $table->unsignedBigInteger('user_id'); // autor del anuncio
             $table->timestamps();
 
 
             // Clave ajena
-            $table->foreign('email')
-                ->references('email')
-                ->on('usuarios')
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anuncios');
+        Schema::dropIfExists('announcements');
     }
 };

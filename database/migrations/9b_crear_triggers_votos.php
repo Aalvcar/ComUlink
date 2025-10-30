@@ -14,24 +14,23 @@ return new class extends Migration
     {
         // Trigger para sumar votos al insertar en votaciones
         DB::unprepared('
-            CREATE TRIGGER sumar_voto
-            AFTER INSERT ON votaciones
+            CREATE TRIGGER add_vote
+            AFTER INSERT ON votes
             FOR EACH ROW
-            UPDATE propuestas
-            SET total_votos = total_votos + 1
-            WHERE ID = NEW.id_propuesta;
+            UPDATE proposals
+            SET total_votes = total_votes + 1
+            WHERE id = NEW.proposal_id;
         ');
 
         // Trigger para restar votos al eliminar de votaciones
         DB::unprepared('
-            CREATE TRIGGER restar_voto
-            AFTER DELETE ON votaciones
+            CREATE TRIGGER remove_vote
+            AFTER DELETE ON votes
             FOR EACH ROW
-            UPDATE propuestas
-            SET total_votos = total_votos - 1
-            WHERE ID = OLD.id_propuesta;
+            UPDATE proposals
+            SET total_votes = total_votes - 1
+            WHERE id = OLD.proposal_id;
         ');
-        
     }
 
     /**
@@ -39,7 +38,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::unprepared('DROP TRIGGER IF EXISTS sumar_voto');
-        DB::unprepared('DROP TRIGGER IF EXISTS restar_voto');
+        DB::unprepared('DROP TRIGGER IF EXISTS add_vote;');
+        DB::unprepared('DROP TRIGGER IF EXISTS remove_vote;');
     }
 };
