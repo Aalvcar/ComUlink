@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('roles', function (Blueprint $table) {
-            $table->tinyIncrements('id'); 
+            $table->id();
             $table->enum('name', ['presidente', 'propietario', 'inquilino']);
             $table->string('description', 255);
             $table->timestamps(); 

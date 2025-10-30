@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 100);
             $table->text('description');
             $table->enum('category', ['rotura', 'reparacion', 'limpieza']);
-            $table->string('repairman', 100)->default('No asignado');
+            $table->string('repairer', 100)->default('No asignado');
             $table->string('status', 255)->default('Pendiente');
             $table->boolean('reported')->default(false);
             $table->string('cause', 30);

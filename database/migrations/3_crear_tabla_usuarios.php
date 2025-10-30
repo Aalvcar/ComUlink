@@ -20,8 +20,10 @@ return new class extends Migration
             $table->string('address', 100);
             $table->unsignedInteger('phone');
             $table->date('birth_date');
-            $table->unsignedTinyInteger('role_id');
+            $table->unsignedBigInteger('role_id');
             $table->timestamps();
+            $table->rememberToken(); // crea varchar(100) nullable
+
 
 
             // Clave ajena hacia roles
