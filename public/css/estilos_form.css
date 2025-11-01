@@ -1,0 +1,111 @@
+.main_container {
+    display: flex;
+}
+
+h2 {
+    text-align: center;
+    color: var(--color-azul_principal);
+    margin-top: 10px;
+}
+
+.form_vecino {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form_vecino fieldset {
+    border: 2px solid var(--color-azul_principal);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form_vecino legend {
+    padding: 0 10px;
+    font-weight: bold;
+    color: var(--color-azul_principal);
+    font-size: 1.1em;
+}
+
+.form_columns {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form_group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form_group input,
+.form_group select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn_submit,
+.btn_reset {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn_submit {
+    background-color: var(--color-azul_principal);
+    color: white;
+}
+
+.btn_reset {
+    background-color: #ccc;
+    color: black;
+}
+
+.btn_submit:hover {
+    background-color: var(--color-dorado_principal);
+}
+
+.btn_reset:hover {
+    background-color: #aaa;
+}
+
+.imgen_form_container {
+    display: flex;
+    margin-top: 20px;
+    align-self: center;
+    width: 25vw;
+    height: 25vw;
+    background-image: url("/images/usuario.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 800px) {
+    .form_columns {
+        flex-direction: column;
+    }
+    .info_main_container {
+        margin: 5% 10px 10px 10%;
+    }
+}

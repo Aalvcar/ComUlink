@@ -11,7 +11,7 @@ Route::get('/', function () {
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/login', function () {
-    return view('anuncios');
+    return view('privadas.anuncios');
 })->middleware('auth')->name('anuncios');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -23,3 +23,11 @@ Route::get('/about', function () {
 Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
+
+Route::get('/telefonos', function () {
+    return view('telefonos');
+})->name('telefonos');
+
+Route::get('/form/nuevo-usuario', function () {
+    return view('formularios.form_nuevo_usuario');
+})->name('form-usuario');

@@ -62,7 +62,7 @@
 
     <footer>
         <div>
-            <li><a href="#"><span>T</span>eléfonos de interés</a></li>
+            <li><a href="{{ route('telefonos') }}"><span>T</span>eléfonos de interés</a></li>
         </div>
         <div>
             <p>© Antonio Álvarez Cárdenas</p>

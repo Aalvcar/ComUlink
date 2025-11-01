@@ -34,9 +34,9 @@
             <label for="email"></label>
             <input name="email" type="email" placeholder="usuario" required>
             <label for="password"></label>
-            <input name="password" type="password" minlength="8" maxlength="12" placeholder="contraseña" required>
+            <input name="password" type="password" minlength="8" maxlength="16" placeholder="contraseña" required>
             <button  type="submit">Entrar</button>
-            <h6>Si no estás registrado haz clic <a href="">aquí.</a></p>
+            <h6>Si no estás registrado haz clic <a href="{{ route('form-usuario') }}">aquí.</a></p>
                 @endguest
                 @auth
                 <a class="btn_entrar" href="{{ route('anuncios') }}">Entrar</a>

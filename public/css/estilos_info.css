@@ -1,10 +1,29 @@
 .info_main_container {
     display: flex;
     flex-direction: column;
-    margin: 5% 20% 2% 20%;
+    margin: 20px 10% 2% 20%;
     gap: 25px;
 }
 
-.lista_enlaces{
+.lista_enlaces {
     margin-left: 10%;
+}
+
+h4 {
+    margin-left: 5%;
+}
+.reserved_contain {
+    margin-left: 220px;
+}
+
+@media screen and (max-width: 800px) {
+    .reserved_contain {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .info_main_container {
+        margin: 0px 10px 10px 0%;
+    }
 }

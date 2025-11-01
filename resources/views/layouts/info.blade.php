@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/estilos_base.css') }}">
     <link rel="stylesheet" href="{{ asset('css/estilos_info.css') }}">
+    @yield('estilo')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
@@ -42,7 +43,7 @@
 
     <footer>
         <div></div>
-        <div>
+        <div class="reserved_contain">
             <p>© Antonio Álvarez Cárdenas</p>
             <p>All rights reserved</p>
         </div>

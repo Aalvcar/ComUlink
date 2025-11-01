@@ -138,7 +138,7 @@ nav {
 .logo {
     margin-top: 15px;
     margin-bottom: 10px;
-    max-width: 7vw;
+    max-width: 5vw;
     min-width: 70px;
     transition: transform 1s ease-out;
 }
