@@ -19,7 +19,7 @@
         <div class="comunity_name_container">
             <h1>La Calera</h1>
             <h3>Sanlúcar la Mayor - Sevilla</h3>
-            <p><a href="https://maps.app.goo.gl/1VWAA7PJSa8Z4vYX8" target="_blank">Ver ubicación<i class="bi bi-geo-alt"></i></a></p>
+            <p><a class="btn_ubicacion" href="https://maps.app.goo.gl/1VWAA7PJSa8Z4vYX8" target="_blank">Ver ubicación<i class="bi bi-geo-alt"></i></a></p>
         </div>
         <div class="info_user">
             <div class="avatar_container">
@@ -44,17 +44,16 @@
             </div>
         </div>
 
-        </div>
     </header>
 
     <nav>
         <ul class="navigation_container">
-        <li><a class="nav_option" href="">Anuncios</a></li>
-        <li><a class="nav_option" href="">Incidencias</a></li>
-        <li><a class="nav_option" href="">Reservas</a></li>
-        <li><a class="nav_option" href="">Servicios</a></li>
-        <li><a class="nav_option" href="">Propuestas</a></li>
-    </ul>
+            <li><a class="nav_option" href="">Anuncios</a></li>
+            <li><a class="nav_option" href="">Incidencias</a></li>
+            <li><a class="nav_option" href="">Reservas</a></li>
+            <li><a class="nav_option" href="">Servicios</a></li>
+            <li><a class="nav_option" href="">Propuestas</a></li>
+        </ul>
     </nav>
 
     <main>

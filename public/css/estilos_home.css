@@ -72,6 +72,28 @@ main {
     background-position: center;
 }
 
+.btn_entrar {
+    padding: 5px 15px 5px 15px;
+    color: white;
+    border: solid 2px #d4a458;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: rgb(192, 192, 192);
+    text-decoration: none;
+}
+
+.btn_entrar:active {
+    color: var(--color-dorado_principal);
+    border: solid 2px var(--color-dorado_principal);
+    background-color: var(--color-azul_principal);
+}
+
+.btn_entrar:hover {
+    color: var(--color-azul_principal);
+    border: solid 2px var(--color-azul_principal);
+    background-color: var(--color-azul_claro);
+}
+
 aside {
     margin: 0px 20px 0px 20px;
     grid-area: formulario;
@@ -110,7 +132,7 @@ button {
 button:hover {
     color: var(--color-azul_principal);
     border: solid 2px var(--color-azul_principal);
-    background-color: var(--color-dorado_principal);
+    background-color: var(--color-azul_claro);
 }
 
 button:active {
@@ -119,7 +141,7 @@ button:active {
     background-color: var(--color-azul_principal);
 }
 
-.error{
+.error {
     color: red;
 }
 

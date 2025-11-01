@@ -13,7 +13,8 @@
     --color-blanco: #f5f5f5;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
@@ -24,13 +25,15 @@ body {
     min-height: 100vh;
 }
 
-header, nav, footer {
-    flex: 0 0 auto; /* ocupan su altura natural */
+header,
+nav,
+footer {
+    flex: 0 0 auto;
 }
 
 main {
-    flex: 1 1 auto; /* ocupa todo el espacio restante */
-    overflow: auto; /* si el contenido es grande, añade scroll solo al main */
+    flex: 1 1 auto;
+    overflow: auto;
 }
 header {
     display: flex;
@@ -53,6 +56,14 @@ h1 {
         font-size: 30px;
     }
 }
+
+.btn_ubicacion {
+    color: var(--color-azul_medio);
+}
+.btn_ubicacion:hover {
+    color: var(--color-dorado_principal);
+}
+
 .avatar_container {
     width: 50px;
     height: 50px;
@@ -116,7 +127,7 @@ nav {
 .btn_logout {
     background: none;
     border: none;
-    color: blue;
+    color: var(--color-azul_medio);
     text-decoration: underline;
     cursor: pointer;
 }

@@ -15,7 +15,7 @@
     <nav>
         <ul>
             <li><a href=""><span>H</span>ome</a></li>
-            <li><a href=""><span>A</span>bout</a></li>
+            <li><a href="{{ route('about') }}"><span>A</span>bout</a></li>
             <li><a href=""><span>C</span>ontacto</a></li>
         </ul>
     </nav>
@@ -28,14 +28,22 @@
 
         <form class="form_area" method="POST" action="{{ route('login') }}">
             @csrf
-            <h5>Bienvenido a la web de gestion de tu comunidad. Introduce tus datos:</h5>
+            <h5>Bienvenido a la web de gestion de tu comunidad.<br><br> @auth Estás autenticado, puedes entrar.@endauth</h5>
+
+            @guest
+            <h5>Introduce tus datos:</h5>
             <label for="email"></label>
             <input name="email" type="email" placeholder="usuario" required>
             <label for="password"></label>
-            <input name="password" type="password" placeholder="contraseña" required>
-            <button type="submit">Entrar</button>
+            <input name="password" type="password" minlength="8" maxlength="12" placeholder="contraseña" required>
+            <button  type="submit">Entrar</button>
             <h6>Si no estás registrado haz clic <a href="">aquí.</a></p>
+                @endguest
+                @auth
+                <a class="btn_entrar" href="{{ route('anuncios') }}">Entrar</a>
+                @endauth
         </form><br>
+
         @error('email')
         <div class="error">{{ $message }}</div>
         @enderror
