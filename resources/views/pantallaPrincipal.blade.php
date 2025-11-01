@@ -5,25 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComUlink</title>
+
+    <link rel="stylesheet" href="{{ asset('css/estilos_home.css') }}">
+
 </head>
 
 <body>
-    <div>
-        <h1>Bienvenido a ComUlink</h1>
-        <p>Tu plataforma de gestión comunitaria.</p>
-
+    <header> </header>
+    <nav>
+        <ul>
+            <li><a href=""><span>H</span>ome</a></li>
+            <li><a href=""><span>A</span>bout</a></li>
+            <li><a href=""><span>C</span>ontacto</a></li>
+        </ul>
+    </nav>
+    <main class="img_container">
+    </main>
+    <aside>
         <div>
-            <a href="/proposals">
-                📋 Ver Propuestas
-            </a>
-            <a href="/announcements">
-                📢 Anuncios
-            </a>
-            <a href="/reservations">
-                📅 Reservas
-            </a>
+            <img class="logo" src="/images/logo.jpeg" alt="Imagen del logo ComUlink">
         </div>
-    </div>
+
+        <form class="form_area" method="POST" action="{{ route('login') }}">
+            @csrf
+            <h5>Bienvenido a la web de gestion de tu comunidad. Introduce tus datos:</h5>
+            <label for="email"></label>
+            <input name="email" type="email" placeholder="usuario" required>
+            <label for="password"></label>
+            <input name="password" type="password" placeholder="contraseña" required>
+            <button type="submit">Entrar</button>
+            <h6>Si no estás registrado haz clic <a href="">aquí.</a></p>
+        </form><br>
+        @error('email')
+        <div class="error">{{ $message }}</div>
+        @enderror
+
+    </aside>
+
+    <footer>
+        <p>© Antonio Álvarez Cárdenas</p>
+        <p>All rights reserved</p>
+
+    </footer>
+
 </body>
 
 </html>

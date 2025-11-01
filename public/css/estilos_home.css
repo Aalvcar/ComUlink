@@ -1,0 +1,134 @@
+* {
+    font-family: "Tahoma", "Arial Narrow", Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-azul_principal: #184666;
+    --color-dorado_principal: #d4a458;
+    --color-azul_medio: #4e95d9;
+    --color-azul_claro: #caeefb;
+    --color-blanco: #f5f5f5;
+}
+
+body {
+    margin: auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "cabecera cabecera-bot"
+        "imagen formulario"
+        "pie pie";
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 10vh auto 60px;
+    /*max-width: 1500px;*/
+}
+
+header {
+    grid-area: cabecera;
+}
+nav {
+    grid-area: cabecera-bot;
+    display: flex;
+    padding: 30px 20px 0px 0px;
+    justify-content: center;
+}
+
+ul {
+    display: flex;
+    gap: 25px;
+    font-size: x-large;
+}
+
+li {
+    list-style: none;
+}
+li > a {
+    text-decoration: none;
+    color: var(--color-azul_principal);
+}
+
+span {
+    color: var(--color-dorado_principal);
+}
+
+.logo {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    max-width: 12vw;
+}
+
+main {
+    display: flex;
+    text-align: center;
+}
+.img_container {
+    grid-area: imagen;
+    background-image: url("/images/portada.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+aside {
+    margin: 0px 20px 0px 20px;
+    grid-area: formulario;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_area {
+    border: solid 1px var(--color-azul_principal);
+    background-color: rgb(236, 236, 236);
+    box-shadow: 5px 5px 10px rgba(73, 73, 73, 0.5);
+    border-radius: 30px;
+    min-height: 300px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+input {
+    border-color: var(--color-dorado_principal);
+    padding: 5px;
+}
+
+button {
+    padding: 5px 15px 5px 15px;
+    color: white;
+    border: solid 2px #d4a458;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: rgb(192, 192, 192);
+}
+
+button:hover {
+    color: var(--color-azul_principal);
+    border: solid 2px var(--color-azul_principal);
+    background-color: var(--color-dorado_principal);
+}
+
+button:active {
+    color: var(--color-dorado_principal);
+    border: solid 2px var(--color-dorado_principal);
+    background-color: var(--color-azul_principal);
+}
+
+.error{
+    color: red;
+}
+
+footer {
+    background: var(--color-azul_principal);
+    color: var(--color-dorado_principal);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    grid-area: pie;
+    padding-top: 10px;
+}

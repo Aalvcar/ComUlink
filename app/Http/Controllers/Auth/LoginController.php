@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function mostrarFormularioLogin()
-    {
-        return view('auth.login');
-    }
-
+ 
     // Realizar el inicio de sesión autenticada
     public function login(Request $request) 
     {
@@ -28,7 +24,7 @@ class LoginController extends Controller
             //Si ok--> se regenera sesión (se anota que está autenticado en la sesión).
             $request->session()->regenerate();
             //Redireccionamos a la página principal de la zona autenticada
-            return redirect()->intended(route('zonaprivada'));
+            return redirect()->intended(route('anuncios'));
         }
 
         // Si la autenticación falla, volver al formulario con un error
@@ -45,6 +41,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route('zonapublica'));
+        return redirect(route('home'));
     }
 }

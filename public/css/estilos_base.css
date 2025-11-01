@@ -1,0 +1,179 @@
+* {
+    font-family: Georgia, Tahoma, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-azul_principal: #184666;
+    --color-dorado_principal: #d4a458;
+    --color-azul_medio: #4e95d9;
+    --color-azul_claro: #caeefb;
+    --color-blanco: #f5f5f5;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, nav, footer {
+    flex: 0 0 auto; /* ocupan su altura natural */
+}
+
+main {
+    flex: 1 1 auto; /* ocupa todo el espacio restante */
+    overflow: auto; /* si el contenido es grande, añade scroll solo al main */
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    color: var(--color-azul_principal);
+}
+
+.comunity_name_container {
+    text-align: center;
+}
+
+.info_user {
+    display: flex;
+    gap: 10px;
+    i {
+        font-size: 30px;
+    }
+}
+.avatar_container {
+    width: 50px;
+    height: 50px;
+    border: solid 2px var(--color-azul_principal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* nav general */
+nav {
+    background-color: var(--color-azul_principal);
+    margin-bottom: 3px;
+}
+
+/* Contenedor de la lista */
+.navigation_container {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cada item de la lista */
+.navigation_container li {
+    text-align: center;
+    padding: 20px 0px;
+    transition: padding 1s, background-color 1s, color 1s;
+}
+
+/* Enlace dentro del li */
+.navigation_container li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+/* Primera letra del enlace */
+.navigation_container li a::first-letter {
+    color: var(--color-dorado_principal);
+}
+
+/* Hover sobre el li completo */
+.navigation_container li:hover {
+    cursor: pointer;
+    padding: 20px 60px;
+    background-color: var(--color-dorado_principal);
+}
+
+/* Hover sobre el texto */
+.navigation_container li:hover a {
+    color: var(--color-azul_claro);
+}
+
+.navigation_container li:hover a::first-letter {
+    color: white;
+}
+
+.btn_logout {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.btn_logout:hover {
+    color: var(--color-dorado_principal);
+}
+
+.logo {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    max-width: 7vw;
+    min-width: 70px;
+    transition: transform 1s ease-out;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-between;
+    background: var(--color-azul_principal);
+    color: var(--color-dorado_principal);
+
+    span {
+        color: var(--color-dorado_principal);
+    }
+    li > a {
+        text-decoration: none;
+        color: white;
+        transition: padding 0.3s, background-color 1s, color 1s;
+    }
+
+    li > a:hover {
+        cursor: pointer;
+        padding: 10px 30px;
+        background-color: var(--color-dorado_principal);
+        border-radius: 20px;
+        color: var(--color-azul_claro);
+        span {
+            color: white;
+        }
+    }
+}
+
+.info_container {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}

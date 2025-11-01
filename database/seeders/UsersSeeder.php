@@ -14,7 +14,16 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = [
+        $users = [ [
+                'name' => 'Antonio',
+                'surname' => 'Álvarez Cárdenas',
+                'email' => 'neo_alvarez@hotmail.com',
+                'password' => Hash::make('alv3438n'),
+                'address' => 'Calle Falsa 456',
+                'phone' => 600123000,
+                'birth_date' => '1987-03-20',
+                'role_id' => 2, // propietario
+            ],
             [
                 'name' => 'Juan',
                 'surname' => 'Pérez',
