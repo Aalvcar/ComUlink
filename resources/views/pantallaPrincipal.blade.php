@@ -14,9 +14,8 @@
     <header> </header>
     <nav>
         <ul>
-            <li><a href=""><span>H</span>ome</a></li>
-            <li><a href="{{ route('about') }}"><span>A</span>bout</a></li>
-            <li><a href=""><span>C</span>ontacto</a></li>
+            <li><a href="{{ route('about') }}"><span>A</span>viso legal</a></li>
+            <li><a href="{{ route('contacto') }}"><span>C</span>ontacto</a></li>
         </ul>
     </nav>
     <main class="img_container">

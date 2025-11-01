@@ -7,6 +7,7 @@
     <title>@yield('title', 'ComUlink')</title>
 
     <link rel="stylesheet" href="{{ asset('css/estilos_base.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/estilos_info.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
@@ -47,7 +48,13 @@
         </div>
         <div>
             <ul class="info_container">
-                <li><a href="{{ route('home') }}"><span>H</span>ome</a></li>
+                @guest <li><a href="{{ route('home') }}"><span>I</span>nicio</a></li>
+                @endguest
+
+                @auth
+                <li><a href="{{ route('anuncios') }}"><span>I</span>nicio</a></li>
+                @endauth
+
                 <li>@yield('enlace')</li>
             </ul>
         </div>

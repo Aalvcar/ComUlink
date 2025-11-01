@@ -70,8 +70,8 @@
         </div>
         <div>
             <ul class="info_container">
-                <li><a href="#"><span>A</span>bout</a></li>
-                <li><a href="#"><span>C</span>ontacto</a></li>
+                <li><a href="{{ route('about') }}"><span>A</span>viso legal</a></li>
+                <li><a href="{{ route('contacto') }}"><span>C</span>ontacto</a></li>
             </ul>
         </div>
 

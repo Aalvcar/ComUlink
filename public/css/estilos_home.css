@@ -23,7 +23,7 @@ body {
         "pie pie";
     grid-template-columns: 5fr 1fr;
     grid-template-rows: 10vh auto 60px;
-    /*max-width: 1500px;*/
+    max-width: 1500px;
 }
 
 header {

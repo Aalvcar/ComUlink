@@ -19,3 +19,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
